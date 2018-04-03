@@ -55,7 +55,11 @@ $(function(){
     var userWithdrawal = parseInt($("#withdrawal").val());
     depositWithdraw(accountNumberInput, userDeposit, userWithdrawal);
     console.log(bankAccountArray);
-    $("#current-balance").text(this.balance);
+    bankAccountArray.forEach(function(account){
+      if (account.accountNumber === accountNumberInput) {
+        $("#current-balance").text(account.balance);
+      }
+    });
     $(".no-display").show();
     event.preventDefault();
   });

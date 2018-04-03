@@ -28,12 +28,18 @@ $(function(){
       (numberGenerator += 1);
     var account = new BankAccount(newAccountName,newAccountNumber, newAccountDeposit);
 
+    $("#account-number").text(newAccountNumber);
+    $(".no-display").show();
     console.log(account);
     event.preventDefault();
   });
   $("#deposit-withdrawal").submit(function(event){
+    var accountNumberInput = $("#account-number-input").val();
     var deposit = $("#deposit").val();
     var withdrawal = $("#withdrawal").val();
+    console.log(accountNumberInput);
+    $("#account-number").text();
+    $(".no-display").show();
     event.preventDefault();
   });
 });

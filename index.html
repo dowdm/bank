@@ -25,11 +25,18 @@
               <input type="number" class="form-control" id="initial-deposit">
             </div>
             <button type="submit" class="btn btn-secondary">Register</button>
+            <div class="no-display card">
+              <p>Your account number is:  <span id="account-number"></span></p>
+            </div>
           </form>
         </div>
         <div class="col">
           <h2>Deposit or Withdraw Funds:</h2>
           <form id="deposit-withdrawal">
+            <div class="form-group">
+              <label for="account-number-input">Enter your account number:</label>
+              <input type="number" class="form-control" id="account-number-input">
+            </div>
             <div class="form-group">
               <label for="deposit">Deposit Amount:</label>
               <input type="number" class="form-control" id="deposit">
@@ -41,23 +48,13 @@
             <button type="submit" class="btn btn-secondary">Deposit/Withdraw</button>
           </form>
         </div>
-
-          <!-- <h2>Contacts:</h2>
-          <ul id="contacts">
-
-          </ul>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="jumbotron no-display">
+            <h4>Your current balance is: <span id=current-balance></span></h4>
+          </div>
         </div>
-        <div class="col-md-6">
-        <div id="show-contact">
-          <h2></h2>
-
-          <p>First name: <span class="first-name"></span></p>
-          <p>Last name: <span class="last-name"></span></p>
-          <p>Addresses:</p>
-            <ul id="addresses">
-
-            </ul>
-        </div> -->
       </div>
     </div>
     </div>

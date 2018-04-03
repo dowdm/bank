@@ -14,3 +14,13 @@ body {
   margin-top: 20px;
   text-align: center;
 }
+
+.no-display {
+  display: none;
+  border: none;
+}
+
+.card {
+  margin-top: 15px;
+  padding: 0 5px;
+}

@@ -1,4 +1,6 @@
 //Business Logic
+var bankAccountArray = [];
+
 function BankAccount(userName, accountNumber, balance) {
   this.userName = userName;
   this.accountNumber = accountNumber;
@@ -6,39 +8,54 @@ function BankAccount(userName, accountNumber, balance) {
 }
 
 BankAccount.prototype.balance = function() {
-  return balance;
+  return this.balance;
 }
 
-BankAccount.prototype.deposit = function() {
-  return balance += deposit;
+BankAccount.prototype.deposit = function(number) {
+  return this.balance += number;
 }
 
-BankAccount.prototype.withdrawal = function() {
-  return balance -= withdrawal;
+BankAccount.prototype.withdrawal = function(number) {
+  return this.balance -= number;
 }
 
 var numberGenerator = 0
+
+function depositWithdraw(accountId, deposit, withdrawal) {
+  bankAccountArray.forEach(function(account){
+    if (account.accountNumber === accountId) {
+      console.log("test");
+      account.deposit(deposit);
+      account.withdrawal(withdrawal);
+    }
+  });
+}
 
 //User Logic
 $(function(){
   $("#new-account").submit(function(event){
     var newAccountName = $("#new-account-name").val();
-    var newAccountDeposit = $("#initial-deposit").val();
+    var newAccountDeposit = parseInt($("#initial-deposit").val());
     var newAccountNumber =
       (numberGenerator += 1);
     var account = new BankAccount(newAccountName,newAccountNumber, newAccountDeposit);
-
+    bankAccountArray.push(account);
+/////////////////
     $("#account-number").text(newAccountNumber);
+    $("#current-balance").text(newAccountDeposit);
     $(".no-display").show();
-    console.log(account);
     event.preventDefault();
   });
+
+
+/////////
   $("#deposit-withdrawal").submit(function(event){
-    var accountNumberInput = $("#account-number-input").val();
-    var deposit = $("#deposit").val();
-    var withdrawal = $("#withdrawal").val();
-    console.log(accountNumberInput);
-    $("#account-number").text();
+    var accountNumberInput = parseInt($("#account-number-input").val());
+    var userDeposit = parseInt($("#deposit").val());
+    var userWithdrawal = parseInt($("#withdrawal").val());
+    depositWithdraw(accountNumberInput, userDeposit, userWithdrawal);
+    console.log(bankAccountArray);
+    $("#current-balance").text(this.balance);
     $(".no-display").show();
     event.preventDefault();
   });

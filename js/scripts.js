@@ -16,7 +16,11 @@ BankAccount.prototype.deposit = function(number) {
 }
 
 BankAccount.prototype.withdrawal = function(number) {
-  return this.balance -= number;
+  if (this.balance >= number) {
+    return this.balance -= number;
+  } else {
+    $("#no-money").show();
+  }
 }
 
 var numberGenerator = 0
